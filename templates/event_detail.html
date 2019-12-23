@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_generic.html' %}
 
-</body>
-</html>
+{% block content %}
+    <div>
+        <h1>{{ event_detail.header }}</h1>
+        <p>{{ event_detail.description }}</p>
+        {% if event_detail.is_limited == True %}
+            <p>Limited: vacant places {{ event_detail.vacant_places }}</p>
+        {% else %}
+            <p>Event is free</p>
+        {% endif %}
+        <form role="form" action="" method="post">
+            {% csrf_token %}
+            <button type="submit" name="submit-button">Take a part</button>
+        </form>
+
+    </div>
+{% endblock %}

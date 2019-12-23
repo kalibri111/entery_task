@@ -1,0 +1,50 @@
+html {
+    background-color:wheat;
+}
+
+.main-header{
+    height: fit-content;
+    background-color: wheat;
+    overflow: hidden;
+}
+
+.user-info{
+    float: right;
+    background-color: burlywood;
+    color: brown;
+    text-align: center;
+    font-size: 16px;
+}
+
+.user-info p{
+    margin-left: 1.1em;
+    margin-right: 1.1em;
+}
+
+.exit-button{
+    background-color: burlywood;
+    border: none;
+    color: brown;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+}
+
+.exit-button:hover{
+    background-color: saddlebrown;
+    color: burlywood;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.box {
+    border-style: solid;
+    border-color: saddlebrown;
+    background-color: wheat;
+}

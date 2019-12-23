@@ -12,8 +12,9 @@ class Event(models.Model):
     owner = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='owner')
     created = models.DateTimeField(auto_now_add=True)
     header = models.TextField(max_length=100)
-    description = models.TextField(max_length=1000)  # TODO set description length
-    vacant_places = models.CharField(max_length=4, null=True)
+    description = models.TextField(max_length=1000)
+    short_description = models.TextField(max_length=1000, null=True)
+    vacant_places = models.IntegerField(null=True)
     is_limited = models.BooleanField(default=True)
     members = models.ManyToManyField(Employee, through='Member')
 
@@ -26,7 +27,7 @@ class Event(models.Model):
 
 class Member(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    Employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
 
 
 class Payment(models.Model):

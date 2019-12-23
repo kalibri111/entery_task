@@ -1,8 +1,14 @@
 from django import forms
-from .models import Event
+from .models import User, Member
 
 
-class EventForm(forms.ModelForm):
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
     class Meta:
-        model = Event
-        fields = ['']
+        model = User
+        fields = ['username', 'password']
+
+
+class MemberForm(forms.Form):
+    submit = forms.CheckboxInput()
