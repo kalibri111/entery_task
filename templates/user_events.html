@@ -1,0 +1,10 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h1 class="event-header">Мои события</h1>
+    <ol class="event-list">
+        {% for event in joined_events %}
+            <li>{{ event }}</li>
+        {% endfor %}
+    </ol>
+{% endblock %}

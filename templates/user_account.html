@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <div class="account-features">
+        <li><a href="/entery/profile/my-events/"> Мои события</a></li>
+    </div>
+
+    <ol class="event-list">
+        <h1>Оплачены</h1>
+        {% for event in events %}
+            <li class="event-href">{{event}}</li>
+        {% endfor %}
+    </ol>
+
+{% endblock %}

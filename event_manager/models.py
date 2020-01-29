@@ -1,22 +1,18 @@
-from django.db import models
+from django.db import models, IntegrityError
 from django.contrib.auth.models import User
+from django.shortcuts import redirect, render
 from django.urls import reverse
 
 
-class Employee(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    department = models.CharField(max_length=100)
-
-
 class Event(models.Model):
-    owner = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='owner')
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')
     created = models.DateTimeField(auto_now_add=True)
     header = models.TextField(max_length=100)
     description = models.TextField(max_length=1000)
     short_description = models.TextField(max_length=1000, null=True)
     vacant_places = models.IntegerField(null=True)
     is_limited = models.BooleanField(default=True)
-    members = models.ManyToManyField(Employee, through='Member')
+    members = models.ManyToManyField(User, through='Member')
 
     def __str__(self):
         return self.header
@@ -27,12 +23,32 @@ class Event(models.Model):
 
 class Member(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    @staticmethod
+    def join_member(member):
+        if member.event.is_limited:
+            places = int(member.event.vacant_places)
+            if places > 0:
+                try:
+                    member.save()
+                except IntegrityError:
+                    raise IntegrityError
+                else:
+                    places -= 1
+                    member.event.vacant_places = places
+                    member.event.save()
+        else:
+            try:
+                member.save()
+            except IntegrityError:
+                raise IntegrityError
+            else:
+                member.event.save()
 
-class Payment(models.Model):
-    member = models.ForeignKey(Member, on_delete=models.CASCADE)
-    sum = models.IntegerField(default=0)
+    class Meta:
+        unique_together = ['event', 'user']
 
     def __str__(self):
-        return self.sum
+        return self.user.first_name + ' ' + self.user.last_name + ' - ' + self.event.header
+

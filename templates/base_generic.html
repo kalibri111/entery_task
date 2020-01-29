@@ -10,38 +10,22 @@
 </head>
 
 <body>
-
+{% if request.user.is_authenticated %}
     <header class="main-header">
-        <div class="user-info">
-            {% block user_info %}{% endblock %}
-        </div>
-        {% block button_block %}
 
-        {% endblock %}
+            <div class="user-info">
+                <p>{{request.user.first_name}} {{request.user.last_name}}</p>
+            </div>
 
-        <a href="/entery/register" class="register">register</a>
+        <a href="/entery/logout" class="exit-button">Log Out</a>
+        <a href="/entery/accounts/login/" class="exit-button">Log In</a>
+        <a href="/entery/profile/" class="exit-button">My Profile</a>
+        <a href="/entery/" class="exit-button">Home</a>
     </header>
+{% endif %}
 
     <div class="container">
         {% block content %} {% endblock %}
-
-        {% block pagination %}
-            {% if is_paginated %}
-                <div class="pagination">
-          <span class="page-links">
-              {% if page_obj.has_previous %}
-                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
-              {% endif %}
-              <span class="page-current">
-                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-              </span>
-              {% if page_obj.has_next %}
-                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
-              {% endif %}
-          </span>
-                </div>
-            {% endif %}
-        {% endblock %}
     </div>
 </body>
 </html>

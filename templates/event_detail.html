@@ -1,18 +1,30 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-    <div>
-        <h1>{{ event_detail.header }}</h1>
-        <p>{{ event_detail.description }}</p>
-        {% if event_detail.is_limited == True %}
-            <p>Limited: vacant places {{ event_detail.vacant_places }}</p>
-        {% else %}
-            <p>Event is free</p>
+    <div class="event-info">
+        {% if event_detail %}
+            <h1 class="event-header">{{ event_detail.header }}</h1>
+            <p class="event-description">{{ event_detail.description }}</p>
+            {% if event_detail.is_limited == True %}
+                <p class="event-limit">Ограничено: свободных мест {{ event_detail.vacant_places }}</p>
+            {% else %}
+                <p class="event-limit">Открытый доступ</p>
+            {% endif %}
+            <form role="form" action="{% url 'joining' event_detail.id%}" method="post">
+                {% csrf_token %}
+                <button type="submit" name="submit-button" class="take_part_btn">Принять участие</button>
+            </form>
         {% endif %}
-        <form role="form" action="" method="post">
-            {% csrf_token %}
-            <button type="submit" name="submit-button">Take a part</button>
-        </form>
-
     </div>
+
+    {{ error_message }}
+
+    {% if members_list %}
+        <div class="members-list">
+            <h1 class="members-list-header"> Уже зарегестрированы: </h1>
+            {% for member in members_list %}
+                <h1 class="member">{{ member.first_name }} {{ member.last_name }}</h1>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

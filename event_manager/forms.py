@@ -1,14 +1,21 @@
 from django import forms
-from .models import User, Member
+from django.core.exceptions import ValidationError
 
 
-class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
+class FilterForm(forms.Form):
+    since = forms.DateField(widget=forms.DateInput, help_text='Since')
+    to = forms.DateField(widget=forms.DateInput, help_text='To')
 
-    class Meta:
-        model = User
-        fields = ['username', 'password']
+    def clean_since(self):
+        since = self.cleaned_data['since']
+        to = self.cleaned_data['to']
+        if to and since > to:
+            raise ValidationError('Since date bigger than To')
+        return since
 
-
-class MemberForm(forms.Form):
-    submit = forms.CheckboxInput()
+    def clean_to(self):
+        since = self.cleaned_data['since']
+        to = self.cleaned_data['to']
+        if since and to < since:
+            raise ValidationError('To date smaller than Since')
+        return since

@@ -2,23 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93848ae8-12bb-41bf-b359-e8e354ac6b6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event_manager/migrations/0002_event_short_description.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event_manager/migrations/0003_auto_20191223_1644.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event_manager/static/css/base_generic.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/rezult.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event_manager/migrations/0004_auto_20200121_1703.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event_manager/migrations/0005_auto_20200121_1704.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/search/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_account.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_events.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entery_task/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/entery_task/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entery_task/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/entery_task/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_manager/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/event_manager/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_manager/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/event_manager/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_manager/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/event_manager/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_manager/static/css/base_generic.css" beforeDir="false" afterPath="$PROJECT_DIR$/event_manager/static/css/base_generic.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_manager/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/event_manager/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_manager/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/event_manager/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base_generic.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_generic.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/event_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/rezult.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,8 +136,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -148,8 +167,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/registration" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/registration" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="entery_task" type="Python.DjangoServer" factoryName="Django server">
@@ -158,6 +186,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="entery_task.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -206,8 +235,37 @@
       <workItem from="1576853529971" duration="3618000" />
       <workItem from="1576874744380" duration="8553000" />
       <workItem from="1576921691062" duration="11243000" />
-      <workItem from="1577108108801" duration="13803000" />
+      <workItem from="1577108108801" duration="13882000" />
+      <workItem from="1577189519427" duration="55000" />
+      <workItem from="1577347564789" duration="59000" />
+      <workItem from="1577630418904" duration="32000" />
+      <workItem from="1578388502765" duration="335000" />
+      <workItem from="1579447000098" duration="1382000" />
+      <workItem from="1579460663519" duration="2126000" />
+      <workItem from="1579507199703" duration="10203000" />
+      <workItem from="1579523940262" duration="4000" />
+      <workItem from="1579593354138" duration="10158000" />
+      <workItem from="1579618465798" duration="12622000" />
+      <workItem from="1579686423171" duration="796000" />
+      <workItem from="1579687246895" duration="356000" />
+      <workItem from="1579687702135" duration="3335000" />
+      <workItem from="1579695062442" duration="1802000" />
+      <workItem from="1579724096711" duration="3813000" />
+      <workItem from="1579773047702" duration="4548000" />
+      <workItem from="1579787250534" duration="7041000" />
+      <workItem from="1580041770394" duration="8276000" />
+      <workItem from="1580124747143" duration="15446000" />
+      <workItem from="1580219763334" duration="12259000" />
+      <workItem from="1580293480293" duration="2307000" />
     </task>
+    <task id="LOCAL-00001" summary="basic functionality">
+      <created>1577125724710</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577125724710</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,34 +273,114 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="basic functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic functionality" />
   </component>
   <component name="WindowStateProjectService">
     <state x="688" y="310" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576875199716">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="688" y="310" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576875199716" />
-    <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576883225813">
+    <state x="691" y="357" width="594" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580295720188">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
+    <state x="691" y="357" width="594" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1580295720188" />
+    <state x="2603" y="281" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580224676244">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2603" y="281" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580224676244" />
     <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576883225813" />
+    <state x="2445" y="135" width="860" height="807" key="CommitChangelistDialog2" timestamp="1577125724344">
+      <screen x="67" y="27" width="3773" height="1053" />
+    </state>
+    <state x="2445" y="135" width="860" height="807" key="CommitChangelistDialog2/67.27.3773.1053@67.27.3773.1053" timestamp="1577125724344" />
     <state x="1920" y="317" width="374" height="484" key="FileChooserDialogImpl" timestamp="1576943143229">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
     <state x="2663" y="297" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1576653703078" />
     <state x="977" y="317" width="374" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1576875680954" />
     <state x="1920" y="317" width="424" height="484" key="FileChooserDialogImpl/67.27.3773.1053@67.27.3773.1053" timestamp="1576943143229" />
+    <state width="1807" height="359" key="GridCell.Tab.0.bottom" timestamp="1580295506436">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1874" height="144" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580235055954" />
+    <state width="1807" height="359" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1580295506436" />
+    <state width="1807" height="359" key="GridCell.Tab.0.bottom/67.27.3773.1053@67.27.3773.1053" timestamp="1580052840240" />
+    <state width="1807" height="359" key="GridCell.Tab.0.center" timestamp="1580295506436">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1874" height="144" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580235055954" />
+    <state width="1807" height="359" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1580295506436" />
+    <state width="1807" height="359" key="GridCell.Tab.0.center/67.27.3773.1053@67.27.3773.1053" timestamp="1580052840240" />
+    <state width="1807" height="359" key="GridCell.Tab.0.left" timestamp="1580295506435">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1874" height="144" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580235055954" />
+    <state width="1807" height="359" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1580295506435" />
+    <state width="1807" height="359" key="GridCell.Tab.0.left/67.27.3773.1053@67.27.3773.1053" timestamp="1580052840238" />
+    <state width="1807" height="359" key="GridCell.Tab.0.right" timestamp="1580295506436">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1874" height="144" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580235055954" />
+    <state width="1807" height="359" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1580295506436" />
+    <state width="1807" height="359" key="GridCell.Tab.0.right/67.27.3773.1053@67.27.3773.1053" timestamp="1580052840240" />
+    <state width="1807" height="359" key="GridCell.Tab.1.bottom" timestamp="1580295506437">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1874" height="371" key="GridCell.Tab.1.bottom/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579799907109" />
+    <state width="1807" height="359" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1580295506437" />
+    <state width="1807" height="359" key="GridCell.Tab.1.bottom/67.27.3773.1053@67.27.3773.1053" timestamp="1580052840242" />
+    <state width="1807" height="359" key="GridCell.Tab.1.center" timestamp="1580295506436">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1874" height="371" key="GridCell.Tab.1.center/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579799907109" />
+    <state width="1807" height="359" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1580295506436" />
+    <state width="1807" height="359" key="GridCell.Tab.1.center/67.27.3773.1053@67.27.3773.1053" timestamp="1580052840240" />
+    <state width="1807" height="359" key="GridCell.Tab.1.left" timestamp="1580295506436">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1874" height="371" key="GridCell.Tab.1.left/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579799907109" />
+    <state width="1807" height="359" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1580295506436" />
+    <state width="1807" height="359" key="GridCell.Tab.1.left/67.27.3773.1053@67.27.3773.1053" timestamp="1580052840240" />
+    <state width="1807" height="359" key="GridCell.Tab.1.right" timestamp="1580295506436">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1874" height="371" key="GridCell.Tab.1.right/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579799907109" />
+    <state width="1807" height="359" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1580295506436" />
+    <state width="1807" height="359" key="GridCell.Tab.1.right/67.27.3773.1053@67.27.3773.1053" timestamp="1580052840242" />
     <state width="263" height="500" key="HiddenNamespacesPopup" timestamp="1577119389847">
       <screen x="67" y="27" width="3773" height="1053" />
     </state>
     <state width="263" height="500" key="HiddenNamespacesPopup/67.27.3773.1053@67.27.3773.1053" timestamp="1577119389847" />
-    <state x="662" y="384" key="com.intellij.ide.util.TipDialog" timestamp="1576921693068">
+    <state x="2369" y="174" key="SettingsEditor" timestamp="1579689887502">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2369" y="174" key="SettingsEditor/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579689887502" />
+    <state x="3145" y="254" width="516" height="542" key="Vcs.Push.Dialog.v2" timestamp="1579689511441">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="3145" y="254" width="516" height="542" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579689511441" />
+    <state x="2475" y="275" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.3773.1053@67.27.3773.1053" timestamp="1577125730319" />
+    <state x="662" y="384" key="com.intellij.ide.util.TipDialog" timestamp="1580293483981">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="2536" y="366" key="com.intellij.ide.util.TipDialog/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1576662623458" />
-    <state x="662" y="384" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576921693068" />
+    <state x="2536" y="366" key="com.intellij.ide.util.TipDialog/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579787253438" />
+    <state x="662" y="384" key="com.intellij.ide.util.TipDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1580219764035" />
+    <state x="662" y="384" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1580293483981" />
     <state x="1119" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1576884218662">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1119" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1576884218662" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/event_manager/views.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 
+from employee import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('entery/', include('event_manager.urls')),
     path('', RedirectView.as_view(url='/entery/', permanent=True)),
+    path('entery/profile/', include('employee.urls')),
+    path('entery/search/', include('search.urls')),
 ]

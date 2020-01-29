@@ -1,26 +1,35 @@
 {% extends "base_generic.html" %}
 
 
-{% block user_info %}
-    <p>{{user_first_name}} {{ user_last_name }} from {{ department }}</p>
-{% endblock %}
-
-{% block button_block %}
-    <button type="button" class="exit-button" name="logout-button">
-            Log out
-    </button>
-{% endblock %}
-
 {% block content%}
+    <div>
+        <form action={% url 'event-search' %} method="get">
+            <input id="search" name="event_header" type="text" class="search-form" placeholder="Поиск">
+            <input type="submit" value="Найти" class="search-button">
+        </form>
+    </div>
     {% if event_list %}
         {% for event in event_list %}
             <div class="box">
-                <h1>{{ event.header }} </h1>
-                <a href="{{ event.get_absolute_url }}">{{ event.short_description }}</a>
+                <h1 class="event-header">{{ event.header }} </h1>
+                <a href="{{ event.get_absolute_url }}" class="event-href">{{ event.short_description }}</a>
             </div>
         {% endfor %}
 
     {% else %}
     <p>No events here</p>
     {% endif %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+    </div>
+
 {% endblock %}
