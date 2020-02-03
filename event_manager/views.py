@@ -1,7 +1,6 @@
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
-
+from django.shortcuts import redirect, render
 from .models import *
 from django.views import generic
 from event_manager.forms import *
@@ -46,9 +45,8 @@ def event_join(request, pk):
     if request.method == 'POST':
         current_user = request.user
         current_event = Event.objects.get(pk=pk)
-        member_to_join = Member(user=current_user, event=current_event)
         try:
-            Member.join_member(member_to_join)
+            Member.join_member(current_user, current_event)
         except IntegrityError:
             return render(request, 'event_detail.html',
                           context={'error_message': 'There is an error, are you already joined?', 'event_detail': [],

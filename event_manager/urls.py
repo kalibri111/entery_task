@@ -9,5 +9,4 @@ urlpatterns = [
     path('events/', views.EventDetailView, name='events'),
     path('<int:pk>/join/', views.event_join, name='joining'),
     url(r'^(?P<pk>\d+)$', views.EventDetailView.as_view(), name='event-detail'),
-    path('error/', views.error_joining, name='error')
 ]

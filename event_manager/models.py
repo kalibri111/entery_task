@@ -1,6 +1,5 @@
 from django.db import models, IntegrityError
 from django.contrib.auth.models import User
-from django.shortcuts import redirect, render
 from django.urls import reverse
 
 
@@ -26,10 +25,11 @@ class Member(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     @staticmethod
-    def join_member(member):
-        if member.event.is_limited:
-            places = int(member.event.vacant_places)
+    def join_member(user, event):
+        if event.is_limited:
+            places = int(event.vacant_places)
             if places > 0:
+                member = Member.objects.create(user=user, event=event)
                 try:
                     member.save()
                 except IntegrityError:
@@ -39,6 +39,7 @@ class Member(models.Model):
                     member.event.vacant_places = places
                     member.event.save()
         else:
+            member = Member.objects.create(user=user, event=event)
             try:
                 member.save()
             except IntegrityError:

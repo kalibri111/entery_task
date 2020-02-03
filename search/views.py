@@ -2,9 +2,10 @@ from django.shortcuts import render
 from event_manager.models import Event
 from django.views import generic
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class EventSearchView(generic.ListView):
+class EventSearchView(LoginRequiredMixin, generic.ListView):
     template_name = 'home.html'
     paginate_by = 10
 
