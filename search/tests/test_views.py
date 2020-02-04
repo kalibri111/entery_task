@@ -17,12 +17,12 @@ class EventSearchViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_searched_header_exist(self):
-        response = self.client.get('/entery/search/?event_header=test_search_header')
+        response = self.client.get('/entery/search/?field=test_search_header')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['event_list'][0].header, 'test_search_header')
 
     def test_searched_header_does_not_exist(self):
-        response = self.client.get('/entery/search/?event_header=header')
+        response = self.client.get('/entery/search/?field=header')
         self.assertEqual(response.status_code, 200)
         self.assertNotContains(response, 'event_list')
 

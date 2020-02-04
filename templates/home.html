@@ -4,7 +4,7 @@
 {% block content%}
     <div>
         <form action={% url 'event-search' %} method="get">
-            <input id="search" name="event_header" type="text" class="search-form" placeholder="Поиск">
+            <span class="search-form">{{ form.field }}</span>
             <input type="submit" value="Найти" class="search-button">
         </form>
     </div>

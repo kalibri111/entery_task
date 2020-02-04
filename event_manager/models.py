@@ -29,9 +29,8 @@ class Member(models.Model):
         if event.is_limited:
             places = int(event.vacant_places)
             if places > 0:
-                member = Member.objects.create(user=user, event=event)
                 try:
-                    member.save()
+                    member = Member.objects.create(user=user, event=event)
                 except IntegrityError:
                     raise IntegrityError
                 else:
@@ -39,9 +38,8 @@ class Member(models.Model):
                     member.event.vacant_places = places
                     member.event.save()
         else:
-            member = Member.objects.create(user=user, event=event)
             try:
-                member.save()
+                member = Member.objects.create(user=user, event=event)
             except IntegrityError:
                 raise IntegrityError
             else:

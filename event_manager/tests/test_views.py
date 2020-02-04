@@ -1,5 +1,6 @@
 from django.test import TestCase
 from event_manager.models import *
+from django.forms import Form
 
 
 class LogoutActionTest(TestCase):
@@ -71,3 +72,20 @@ class EventJoinTest(TestCase):
         response = self.client.post(reverse('joining', args=[1]))
         response = self.client.post(reverse('joining', args=[1]))
         self.assertRaises(IntegrityError)
+
+
+class HomeTest(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        User.objects.create_user(username='test_username', password='1234')
+
+    def setUp(self) -> None:
+        self.client.login(username='test_username', password='1234')
+
+    def test_logged_in(self):
+        response = self.client.get(reverse('index'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_get_context_data(self):
+        response = self.client.get(reverse('index'))
+        self.assertTrue(isinstance(response.context['form'], Form))
