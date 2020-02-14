@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'event_manager.apps.EventManagerConfig',
-    'employee.apps.EmployeeConfig'
+    'employee.apps.EmployeeConfig',
+    'polls.apps.PoolsConfig',
 ]
 
 MIDDLEWARE = [

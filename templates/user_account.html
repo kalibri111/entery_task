@@ -1,15 +1,28 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-    <div class="account-features">
-        <li><a href="/entery/profile/my-events/"> Мои события</a></li>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <div class="card">
+                    <h1 class="card-title">Оплачены</h1>
+                    {% if events %}
+                    {% for event in events %}
+                        <li class="card-text">{{ event }}</li>
+                    {% endfor %}
+                        {% else %}
+                        <p class="card-text text-warning">Не оплачено ни одно событие</p>
+                    {% endif %}
+
+                    <a href="/entery/profile/my-events/" class="card-link"> Мои события</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <ol class="event-list">
-        <h1>Оплачены</h1>
-        {% for event in events %}
-            <li class="event-href">{{event}}</li>
-        {% endfor %}
-    </ol>
+{% endblock %}
 
+{% block current_profile %}
+    active
 {% endblock %}

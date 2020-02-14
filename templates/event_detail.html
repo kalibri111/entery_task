@@ -1,30 +1,41 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-    <div class="event-info">
-        {% if event_detail %}
-            <h1 class="event-header">{{ event_detail.header }}</h1>
-            <p class="event-description">{{ event_detail.description }}</p>
-            {% if event_detail.is_limited == True %}
-                <p class="event-limit">Ограничено: свободных мест {{ event_detail.vacant_places }}</p>
-            {% else %}
-                <p class="event-limit">Открытый доступ</p>
-            {% endif %}
-            <form role="form" action="{% url 'joining' event_detail.id%}" method="post">
-                {% csrf_token %}
-                <button type="submit" name="submit-button" class="take_part_btn">Принять участие</button>
-            </form>
-        {% endif %}
-    </div>
+    <div class="container-fluid">
+        <div class="row row-cols-2">
+            <div class="col-9">
+                <div class="card">
+                    {% if event_detail %}
+                        <h1 class="card-title">{{ event_detail.header }}</h1>
+                        <p class="card-text">{{ event_detail.description }}</p>
+                        {% if event_detail.is_limited == True %}
+                            <p class="card-text">Ограничено: свободных мест {{ event_detail.vacant_places }}</p>
+                        {% else %}
+                            <p class="card-text">Открытый доступ</p>
+                        {% endif %}
+                        <form role="form" action="{% url 'joining' event_detail.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" name="submit-button" class="btn btn-success">Принять участие</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
 
-    {{ error_message }}
+            <div class="col-3">
+                <div class="card">
+                    <h1 class="card-title"> Уже зарегестрированы: </h1>
+                    {% if members_list %}
+                        {% for member in members_list %}
+                            <p class="card-text">{{ member.first_name }} {{ member.last_name }}</p>
+                        {% endfor %}
+                    {% else %}
+                        <p class="card-text text-warning">Пока никто не принял участие</p>
+                    {% endif %}
 
-    {% if members_list %}
-        <div class="members-list">
-            <h1 class="members-list-header"> Уже зарегестрированы: </h1>
-            {% for member in members_list %}
-                <h1 class="member">{{ member.first_name }} {{ member.last_name }}</h1>
-            {% endfor %}
+                </div>
+
+            </div>
         </div>
-    {% endif %}
+    </div>
+    <h1 class="text-danger">{{ error_message }}</h1>
 {% endblock %}

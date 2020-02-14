@@ -25,4 +25,5 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/entery/', permanent=True)),
     path('entery/profile/', include('employee.urls')),
     path('entery/search/', include('search.urls')),
+    path('entery/polls/', include('polls.urls')),
 ]

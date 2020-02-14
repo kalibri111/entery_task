@@ -4,27 +4,76 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KeyEvents</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/base_generic.css' %}">
+{#    {% load static %}#}
+{#    <link rel="stylesheet" href="{% static 'css/base_generic.css' %}">#}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 {% if request.user.is_authenticated %}
-    <header class="main-header">
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">KeyEvents</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item {% block current_home %}{% endblock %}">
+                    <a class="nav-link" href="/entery/">Home<span class="sr-only">(current)</span> </a>
+                </li>
+
+                <li class="nav-item {% block current_logout %}{% endblock %}">
+                    <a href="/entery/logout" class="nav-link">Log Out<span class="sr-only">(current)</span></a>
+{#                    <a class="nav-link" href="#">Link</a>#}
+                </li>
+
+                <li class="nav-item {% block current_profile %}{% endblock %}">
+                    <a href="/entery/profile/" class="nav-link">My Profile<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item {% block current_polls %}{% endblock %}">
+                    <a href="/entery/polls" class="nav-link">Polls<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method="get">
+                    {{ form.field }}
+{#                <span class="form-control mr-sm-2" >{{ form.field }}</span>#}
+{#                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">#}
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
             <div class="user-info">
                 <p>{{request.user.first_name}} {{request.user.last_name}}</p>
             </div>
+        </div>
+    </nav>
 
-        <a href="/entery/logout" class="exit-button">Log Out</a>
-        <a href="/entery/accounts/login/" class="exit-button">Log In</a>
-        <a href="/entery/profile/" class="exit-button">My Profile</a>
-        <a href="/entery/" class="exit-button">Home</a>
-    </header>
+
+    {#    <header class="main-header">#}
+{##}
+{#            <div class="user-info">#}
+{#                <p>{{request.user.first_name}} {{request.user.last_name}}</p>#}
+{#            </div>#}
+{##}
+{#        <a href="/entery/logout" class="exit-button">Log Out</a>#}
+{#        <a href="/entery/accounts/login/" class="exit-button">Log In</a>#}
+{#        <a href="/entery/profile/" class="exit-button">My Profile</a>#}
+{#        <a href="/entery/" class="exit-button">Home</a>#}
+{#    </header>#}
 {% endif %}
 
-    <div class="container">
+    <div class="container-fluid">
         {% block content %} {% endblock %}
     </div>
 </body>
