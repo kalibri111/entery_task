@@ -19,7 +19,7 @@ class PoolDetail(LoginRequiredMixin, generic.DetailView):
 
     def post(self, request, *args, **kwargs):
         this = get_object_or_404(Question, pk=self.kwargs['pk'])
-        form_inst = PoolChoiceForm.bound_constructor(this, request.POST)
+        form_inst = PoolChoiceForm(data=request.POST, question=this)
         if form_inst.is_valid():
             choices = form_inst.cleaned_data['choices']  # titles
             voters = [obj.user for obj in Voters.objects.filter(question__exact=this)]
@@ -34,6 +34,6 @@ class PoolDetail(LoginRequiredMixin, generic.DetailView):
         context = super(PoolDetail, self).get_context_data()
         this = get_object_or_404(Question, pk=self.kwargs['pk'])
         context['choices_list'] = Choice.objects.filter(question__exact=this)
-        context['form'] = PoolChoiceForm.question_constructor(this)
+        context['form'] = PoolChoiceForm(question=this)
         return context
 

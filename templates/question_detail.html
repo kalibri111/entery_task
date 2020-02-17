@@ -12,9 +12,10 @@
                     {% if form %}
                         <form class="form-inline my-2 my-lg-0" method="post" action="">
                             {% csrf_token %}
-                            <div class="custom-control custom-checkbox">
-                                {% crispy form %}
-                            </div>
+{#                            <div class="custom-control custom-checkbox">#}
+{#                                {% crispy form %}#}
+{#                            </div>#}
+                            {{ form }}
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Голосовать</button>
                         </form>
                     {% endif %}

@@ -10,18 +10,8 @@ class PoolChoiceForm(forms.Form):
         help_text=None
     )
 
-    @staticmethod
-    def question_constructor(question):
-        inst = PoolChoiceForm()
-        inst.fields['choices'] = forms.MultipleChoiceField(
-            choices=[(obj, obj) for obj in Choice.objects.filter(question__exact=question)],
+    def __init__(self, data=None, *args, **kwargs):
+        super(PoolChoiceForm, self).__init__(data)
+        self.fields['choices'] = forms.MultipleChoiceField(
+            choices=[(obj, obj) for obj in Choice.objects.filter(question__exact=kwargs['question'])],
             widget=forms.CheckboxSelectMultiple(attrs={'class': '  custom-checkbox', 'type': 'checkbox'}))
-        return inst
-
-    @staticmethod
-    def bound_constructor(question, request):
-        inst = PoolChoiceForm(request)
-        inst.fields['choices'] = forms.MultipleChoiceField(
-            choices=[(obj, obj) for obj in Choice.objects.filter(question__exact=question)],
-            widget=forms.CheckboxSelectMultiple(attrs={'class': '  custom-checkbox', 'type': 'checkbox'}))
-        return inst
