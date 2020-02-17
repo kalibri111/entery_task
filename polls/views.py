@@ -18,13 +18,17 @@ class PoolDetail(LoginRequiredMixin, generic.DetailView):
     template_name = 'question_detail.html'
 
     def post(self, request, *args, **kwargs):
-        form_inst = PoolChoiceForm(request.POST)
-        # id = request.POST.get('id')
-        # form_inst.fields['unit_id'].choices = [(id, id)]
-        print(form_inst.fields)
+        this = get_object_or_404(Question, pk=self.kwargs['pk'])
+        form_inst = PoolChoiceForm.bound_constructor(this, request.POST)
         if form_inst.is_valid():
-            a = form_inst.cleaned_data['choices']
-        return render(request, 'question_detail.html', {'form': form_inst})
+            choices = form_inst.cleaned_data['choices']  # titles
+            voters = [obj.user for obj in Voters.objects.filter(question__exact=this)]
+            if request.user in voters:
+                return render(request, 'question_detail.html', {'error_message': 'Вы уже голосовали'})
+            for choice_text in choices:
+                Choice.objects.filter(choice_text__exact=choice_text, question__exact=this)[0].votes += 1
+            Voters.objects.create(user=request.user, question=this)
+        return redirect('polls-list')
 
     def get_context_data(self, **kwargs):
         context = super(PoolDetail, self).get_context_data()

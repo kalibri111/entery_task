@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'event_manager.apps.EventManagerConfig',
     'employee.apps.EmployeeConfig',
     'polls.apps.PoolsConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

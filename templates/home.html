@@ -5,7 +5,7 @@
     {% if event_list %}
         {% for event in event_list %}
             <div class="container-fluid">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center no-gutters">
                     <div class="col-4">
                         <div class="card" style="width: 30rem">
                             <h1 class="card-title">{{ event.header }} </h1>
@@ -18,7 +18,7 @@
         {% endfor %}
 
     {% else %}
-        <p class="text-warning">No events here</p>
+        <p class="text-danger">No events here</p>
     {% endif %}
 
     <div class="container-fluid">

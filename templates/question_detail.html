@@ -1,25 +1,24 @@
 {% extends "base_generic.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-4 card">
-                <h1 class="card-title">{{ question.question_title }}</h1>
-                <h class="card-text">{{ question.question_text }}</h>
-                <p class="card-text text-danger">{{ error_message }}</p>
-{#                {% for choice in choices_list %}#}
-{#                    <div class="custom-control custom-checkbox">#}
-{#                        <input type="checkbox" class="custom-control-input" id="{{ choice }}">#}
-{#                        <label class="custom-control-label" for="{{ choice }}">{{ choice }}</label>#}
-{#                    </div>#}
-{#                {% endfor %}#}
-                <form class="form-inline my-2 my-lg-0" method="post" action="">
-                    {% csrf_token %}
-                    {{ form }}
-{#                <span class="form-control mr-sm-2" >{{ form.field }}</span>#}
-{#                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">#}
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Голосовать</button>
-            </form>
+        <div class="row justify-content-center no-gutters">
+            <div class="col-4">
+                <div class="card">
+                    <h1 class="card-title">{{ question.question_title }}</h1>
+                    <h class="card-text">{{ question.question_text }}</h>
+                    <p class="card-text text-danger">{{ error_message }}</p>
+                    {% if form %}
+                        <form class="form-inline my-2 my-lg-0" method="post" action="">
+                            {% csrf_token %}
+                            <div class="custom-control custom-checkbox">
+                                {% crispy form %}
+                            </div>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Голосовать</button>
+                        </form>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

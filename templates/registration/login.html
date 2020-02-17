@@ -1,16 +1,26 @@
-{%  extends 'base_generic.html' %}
+{% extends 'base_generic.html' %}
 {% block content %}
-    <h2>Log In</h2>
+    <div class="container-fluid">
+        <div class="row-1">
+            <div class="col-3">
+                <div class="card">
+                    <h2 class="card-title">Log In</h2>
 
-    <form role="form" method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        Login:<br>
-        <input type="text" name="username">
-        <br>
-        Password:<br>
-        <input type="password" name="password">
-        <input type="submit" value="Log In">
-        <input type="hidden" name="next" value="{{ next }}" />
-    </form>
+                    <form role="form" method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        Login:<br>
+                        <input type="text" name="username">
+                        <br>
+                        Password:<br>
+                        <input type="password" name="password">
+                        <input type="submit" class="btn-primary" value="Log In">
+                        <input type="hidden" name="next" value="{{ next }}"/>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
 {% endblock %}
