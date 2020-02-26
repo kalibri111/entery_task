@@ -9,14 +9,15 @@
                     <h1 class="card-title">{{ question.question_title }}</h1>
                     <h class="card-text">{{ question.question_text }}</h>
                     <p class="card-text text-danger">{{ error_message }}</p>
+                    {% if rezult_list %}
+                            {% for rezult in rezult_list %}
+                                <p class="card-text text-primary">{{ rezult.choice }} - {{ rezult.voters_percent }}%</p>
+                            {% endfor %}
+                    {% endif %}
                     {% if form %}
-                        <form class="form-inline my-2 my-lg-0" method="post" action="">
+                        <form method="post" action="">
                             {% csrf_token %}
-{#                            <div class="custom-control custom-checkbox">#}
-{#                                {% crispy form %}#}
-{#                            </div>#}
-                            {{ form }}
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Голосовать</button>
+                            {% crispy form %}
                         </form>
                     {% endif %}
                 </div>
